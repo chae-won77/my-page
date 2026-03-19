@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윤채원 - Digital Business Card</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0056b3 0%, #00a2ff 100%);
+            --accent-color: #00d2ff;
+            --bg-color: #eef2f7;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #2c3e50;
+            --text-sub: #576574;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(at 0% 0%, rgba(0, 86, 179, 0.1) 0, transparent 50%), 
+                              radial-gradient(at 100% 100%, rgba(0, 162, 255, 0.1) 0, transparent 50%);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .card {
+            width: 380px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: var(--primary-gradient);
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .university-tag {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .university-name {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 40px 30px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-circle {
+            width: 110px;
+            height: 110px;
+            background: var(--white);
+            border-radius: 50%;
+            position: absolute;
+            top: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0, 86, 179, 0.15);
+            border: 4px solid var(--white);
+        }
+
+        .profile-icon {
+            width: 90px;
+            height: 90px;
+            background: #f0f4f8;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #0056b3;
+            font-size: 40px;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a2a6c;
+            margin-bottom: 4px;
+            margin-top: 10px;
+        }
+
+        .major {
+            font-size: 16px;
+            color: var(--text-sub);
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .major::before, .major::after {
+            content: "";
+            width: 20px;
+            height: 1px;
+            background: #d1d8e0;
+        }
+
+        .info-box {
+            background: #f8f9fb;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: left;
+            border: 1px solid #edf2f7;
+        }
+
+        .info-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #0056b3;
+            margin-bottom: 8px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #4b6584;
+            word-break: keep-all;
+        }
+
+        .action-button {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(0, 86, 179, 0.2);
+        }
+
+        .action-button:hover {
+            box-shadow: 0 12px 20px rgba(0, 86, 179, 0.3);
+            filter: brightness(1.1);
+        }
+
+        .footer-logo {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #a5b1c2;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="university-tag">SANGMYUNG UNIVERSITY</div>
+            <div class="university-name">상명대학교</div>
+        </div>
+        <div class="content">
+            <div class="profile-circle">
+                <div class="profile-icon">⚡</div>
+            </div>
+            <h1 class="name">윤채원</h1>
+            <div class="major">전기공학 전공 2학년</div>
+            
+            <div class="info-box">
+                <span class="info-label">Professional Interest</span>
+                <p class="intro-text">
+                    전력시스템의 효율성과 안정성에 관심이 깊은 공학도입니다. 미래 에너지 기술을 선도하는 전문가를 꿈꿉니다.
+                </p>
+            </div>
+
+            <button class="action-button" onclick="window.print()">명함 인쇄 / 저장하기</button>
+            
+            <div class="footer-logo">2026 DIGITAL PORTFOLIO</div>
+        </div>
+    </div>
+</body>
+</html>
